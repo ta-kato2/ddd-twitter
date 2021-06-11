@@ -1,4 +1,4 @@
-package jp.unext.usecase.useradd.inputboundary;
+package jp.unext.usecase.useradd.intractor;
 
 import java.util.UUID;
 
@@ -9,14 +9,19 @@ import jp.unext.model.value.AccountName;
 import jp.unext.model.value.MailAddress;
 import jp.unext.model.value.UserId;
 import jp.unext.store.gateway.UserRepository;
+import jp.unext.usecase.useradd.inputboundary.UserAddInputBoundary;
 import jp.unext.usecase.useradd.inputdata.UserAddInputData;
 import jp.unext.view.outputboundary.UserAddOutputData;
 
-public class UserAddUseCase {
+/**
+ * {@link UserAddInputBoundary} の実装
+ */
+public class UserAddUseCase implements UserAddInputBoundary {
 
 	@Inject
 	UserRepository userRepository;
 
+	@Override
 	public UserAddOutputData handle(UserAddInputData inputData) {
 		String uuid = UUID.randomUUID().toString();
 

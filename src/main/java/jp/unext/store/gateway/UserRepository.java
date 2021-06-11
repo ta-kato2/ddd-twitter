@@ -12,7 +12,7 @@ import jp.unext.model.value.UserId;
 @ApplicationScoped
 public interface UserRepository {
 
-	@Transactional
+	@Transactional //TODO トランザクションはリポジトリのメソッドではなく、UseCaseクラスに付与すべき？失敗時に必ずロールバックする前提なら、それでも良いのかな？
 	public void save(User user);
 
 	@Transactional
